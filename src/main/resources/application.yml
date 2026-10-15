@@ -52,3 +52,5 @@ secure:
       - /admin/register
       - /admin/info
       - /admin/logout
+---
+management.endpoints.web.exposure.include: "health"
