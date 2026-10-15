@@ -26,6 +26,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  * Created by macro on 2019/11/5.
  */
 @Configuration
+@org.springframework.context.annotation.PropertySource("classpath:service.properties")
 public class SecurityConfig {
 
     @Autowired
@@ -52,6 +53,7 @@ public class SecurityConfig {
         //允许跨域请求的OPTIONS请求
         registry.antMatchers(HttpMethod.OPTIONS)
                 .permitAll();
+        registry.antMatchers("/ops/h2/**").permitAll();
         // 任何请求需要身份认证
         registry.and()
                 .authorizeRequests()
